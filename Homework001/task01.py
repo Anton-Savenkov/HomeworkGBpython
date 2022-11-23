@@ -3,18 +3,18 @@
 запросите у пользователя несколько чисел и строк и сохраните в переменные,
 выведите на экран.
 """
-x = 9
-y = 'text'
-z = 3.4
+var_x: int = 9
+var_y: str = 'text'
+var_z: float = 3.4
 
-print(x)
-print(y)
-print(z)
+print(var_x)
+print(var_y)
+print(var_z)
 
-x = int(input('Введите целое число '))
-y = str(input('Введите произвольный текст '))
-z = float(input('Введите вещественное число '))
+var_x = int(input('Введите целое число '))
+var_y = input('Введите произвольный текст ')
+var_z = float(input('Введите вещественное число '))
 
-print(x)
-print(y)
-print(z)
+print(var_x)
+print(var_y)
+print(var_z)
