@@ -8,23 +8,33 @@
 прибыль фирмы в расчете на одного сотрудника."""
 
 
+# expenses - расходы
+# costs = издежки
+# loss = 'убытки'
+# profit = 'прибыль'
 
 fin_result = 0
 
-revenue = input('Введите значение выручки компании ')
-costs = input('Введите значение издержек компании ')
+revenue = float(input('Введите значение выручки компании '))
+costs = float(input('Введите значение издержек компании '))
 
-if revenue < costs:
+if revenue > costs:
     fin_result = float(revenue) - float(costs)
     print(f'Выручка компании составила {fin_result}')
-elif revenue > costs:
-    fin_result = float(costs) - float(revenue)
-    print(f'Убытки компании составили {fin_result}')
+elif revenue < costs:
+    fin_result = float(revenue) - float(costs)
+    print(f'Убытки компании составили { - fin_result}')
 else:
     print(f'Баланс компании равен {fin_result}')
 
+headcount = input('Введите колличество сотрудников компании ')
 
-
-
-
-
+if fin_result > 0:
+    profit_per_person = fin_result / float(headcount)
+    print(f'Прибыль фирмы в расчете на одного сотрудника '
+          f'составляет {profit_per_person}')
+elif fin_result < 0:
+    lost_per_person = fin_result / float(headcount)
+    print(
+        f'Убыток фирмы в расчете на одного сотрудника '
+        f'составляет { - lost_per_person}')
