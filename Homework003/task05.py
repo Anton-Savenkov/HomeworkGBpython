@@ -10,25 +10,27 @@
 end_symbol = '@'
 
 user_start = input(f'Введите произвольные числа через пробел,'
-                  f'для завершения ввода данных используйте {end_symbol} .'
-                  f'Для начала ввода нажмитее Ввод (Inter)')
+                   f'для завершения ввода данных используйте {end_symbol} .'
+                   f'Для начала ввода нажмитее Ввод (Inter)')
+
 
 def sum_input_str():
+    """Функция принимает строкуу чисел раздеренных пробелом,
+     выводит сумму элементов"""
     total_sum = 0
     current_sum = 0
     end_var = False
-    while end_var == False:
-        number_list = input(f"Введите числа через пробел: ").split()
+    while not end_var:
+        number_list = input('Введите числа через пробел: ').split()
         for el in number_list:
-            if el == end_symbol:
+            if el != end_symbol:
+                current_sum += float(el)
+            else:
                 end_var = True
                 break
-            else:
-                current_sum += float(el)
         print(f'Сумма введенных елементов = {current_sum}')
     total_sum += current_sum
     print(f'Сумма всех элементов = {total_sum}')
 
 
 sum_input_str()
-
