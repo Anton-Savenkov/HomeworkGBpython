@@ -10,7 +10,7 @@ Four — 4
 
 num_dict = {'One': 'Один', 'Two': 'Два', 'Three': 'Три', 'Four': 'Четыре'}
 translate_text = []
-print(num_dict.keys())
+#print(num_dict.keys())
 
 with open('text_task4.txt', 'r', encoding='utf-8') as new_obj:
     for el in new_obj:
