@@ -9,3 +9,16 @@ color (цвет) и метод running (запуск). Атрибут реали
 Задачу можно усложнить, реализовав проверку порядка режимов,
 и при его нарушении выводить соответствующее сообщение и завершать скрипт."""
 
+from time import sleep
+
+
+class TrafficLight:
+    __color = {'Red': 7, 'Yellow': 2, 'Green': 3}
+
+    def running(self):
+        for key, count_time in TrafficLight.__color.items():
+            print(f'now traffic light -- {key}')
+            sleep(count_time)
+
+traffic_light_now = TrafficLight()
+traffic_light_now.running()
