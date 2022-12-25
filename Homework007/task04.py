@@ -22,15 +22,19 @@ class Car:
         self.is_police = is_police
 
     def go(self):
+        #метод вывода сообщения о начале движения
         return f' {self.name} Поехала'
 
     def stop(self):
+        # метод вывода сообщения о остановке
         return f' {self.name} Остановилась'
 
     def turn(self, direction):
+        # метод вывода сообщения о изменении направления движения
         return f' {self.name} повернула в направлении {direction}'
 
     def show_speed(self):
+        # метод вывода скорости
         return f'Автомобиль {self.name} движется со скоростью {self.speed}'
 
 
@@ -41,6 +45,8 @@ class TownCar(Car):
         self.is_town_car = is_town_car
 
     def show_speed(self):
+        """метод вывводит сообщение о соответствии скорости заданной
+        максимальной для данного типа авто"""
         if self.speed > 60:
             return f'Автомобиль {self.name} привысил допустимую скорость ' \
                    f'(маклимальная скорость для данного типа автомобиля 60км/ч'
@@ -60,6 +66,8 @@ class WorkCar(Car):
         self.is_work_car = is_work_car
 
     def show_speed(self):
+        """метод вывводит сообщение о соответствии скорости заданной
+                максимальной для данного типа авто"""
         if self.speed > 40:
             return f'Автомобиль {self.name} привысил допустимую скорость ' \
                    f'(маклимальная скорость для данного типа автомобиля 60км/ч'
@@ -69,6 +77,7 @@ class WorkCar(Car):
 class PoliceCar(Car):
 
     def duty_car(self, traffic_violation):
+        """метод выввода сообщения о обнаружении нарушений ПДД"""
         if traffic_violation:
             return 'Выявлено нарушение ПДД'
         return 'Нарушения не обнаружены'
