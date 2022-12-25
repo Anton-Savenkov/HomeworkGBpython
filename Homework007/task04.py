@@ -11,3 +11,77 @@ show_speed, который должен показывать текущую ск
 Выполните доступ к атрибутам, выведите результат.
 Выполните вызов методов и также покажите результат.
 """
+
+
+class Car:
+
+    def __init__(self, name, color, speed, is_police):
+        self.name = name
+        self.color = color
+        self.speed = speed
+        self.is_police = is_police
+
+    def go(self):
+        return f' {self.name} Поехала'
+
+    def stop(self):
+        return f' {self.name} Остановилась'
+
+    def turn(self, direction):
+        return f' {self.name} повернула в направлении {direction}'
+
+    def show_speed(self):
+        return f'Автомобиль {self.name} движется со скоростью {self.speed}'
+
+
+class TownCar(Car):
+
+    def __init__(self, name, color, speed, is_police, is_town_car):
+        super().__init__(name, color, speed, is_police)
+        self.is_town_car = is_town_car
+
+    def show_speed(self):
+        if self.speed > 60:
+            return f'Автомобиль {self.name} привысил допустимую скорость ' \
+                   f'(маклимальная скорость для данного типа автомобиля 60км/ч'
+        return f'Автмобиль {self.name} движется со скоростью {self.speed}'
+
+
+class SportCar(Car):
+    def __init__(self, name, color, speed, is_police, is_sport_car):
+        super().__init__(name, color, speed, is_police)
+        self.is_sport_car = is_sport_car
+
+
+class WorkCar(Car):
+
+    def __init__(self, name, color, speed, is_police, is_work_car):
+        super().__init__(name, color, speed, is_police)
+        self.is_work_car = is_work_car
+
+    def show_speed(self):
+        if self.speed > 40:
+            return f'Автомобиль {self.name} привысил допустимую скорость ' \
+                   f'(маклимальная скорость для данного типа автомобиля 60км/ч'
+        return f'Автмобиль {self.name} движется со скоростью {self.speed}'
+
+
+class PoliceCar(Car):
+
+    def duty_car(self, traffic_violation):
+        if traffic_violation:
+            return 'Выявлено нарушение ПДД'
+        return 'Нарушения не обнаружены'
+
+
+audi = TownCar('Audi Q5', 'серый', 62, False, True)
+bmw_m1 = SportCar('BMW M1', 'красный', 210, False, True)
+lexus = WorkCar('Lexus RX300', 'зеленый', 40, False, True)
+bmw = PoliceCar('BMW 318', 'белый', 65, True)
+
+print(f'Автомобиль {audi.name}, цвет - {audi.color}, движется со скоростью '
+      f'{audi.speed}')
+print(f'{bmw.name}, это полиция - {bmw.is_police}')
+print(f'{bmw_m1.go()}  \n{lexus.show_speed()} '
+      f'\nPolice: {bmw.duty_car(True)} ')
+print(f'{audi.turn("на юг")} \n{lexus.stop()}')
