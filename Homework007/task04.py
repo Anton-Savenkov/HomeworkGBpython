@@ -23,11 +23,11 @@ class Car:
 
     def go(self):
         #метод вывода сообщения о начале движения
-        return f' {self.name} Поехала'
+        return f' {self.name} Начал движение (поехал)'
 
     def stop(self):
         # метод вывода сообщения о остановке
-        return f' {self.name} Остановилась'
+        return f' {self.name} Прекратил движение (остановился)'
 
     def turn(self, direction):
         # метод вывода сообщения о изменении направления движения
@@ -91,6 +91,6 @@ bmw = PoliceCar('BMW 318', 'белый', 65, True)
 print(f'Автомобиль {audi.name}, цвет - {audi.color}, движется со скоростью '
       f'{audi.speed}')
 print(f'{bmw.name}, это полиция - {bmw.is_police}')
-print(f'{bmw_m1.go()}  \n{lexus.show_speed()} '
+print(f'Автомобиль {bmw_m1.go()}  \n{lexus.show_speed()} '
       f'\nPolice: {bmw.duty_car(True)} ')
 print(f'{audi.turn("на юг")} \n{lexus.stop()}')
