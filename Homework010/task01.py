@@ -1,7 +1,7 @@
 """Создать не менее двух дескрипторов для атрибутов классов,
 которые вы создали ранее в ДЗ"""
 
-class Numberchecks:
+class NumberChecks:
     #класс валидации значения атрибута - число больше 0
     def __set__(self, instance, value):
         """валидация - происваевоемое значение должно быть больше ноля"""
@@ -13,7 +13,7 @@ class Numberchecks:
     def __set_name__(self, owner, my_atr):
         self.my_atr = my_atr
 
-class Textchecks:
+class TextChecks:
     # класс валидации значения атрибута - вод только строки
     def __set__(self, instance, value):
         """проверка - происваевоемое значение должно быть больше ноля"""
@@ -27,8 +27,8 @@ class Textchecks:
 
 class Car:
     #Атрибуты которые делаеем дискрипторами
-    speed = Numberchecks()
-    name = Textchecks()
+    speed = NumberChecks()
+    name = TextChecks()
     def __init__(self, name, color, speed, is_police):
         self.name = name
         self.color = color
@@ -57,7 +57,7 @@ print(car_item.speed)
 
 class Cell:
     # Атрибуты которые делаеем дискрипторами
-    quantity = Numberchecks()
+    quantity = NumberChecks()
     def __init__(self, quantity):
         self.quantity = quantity
 
