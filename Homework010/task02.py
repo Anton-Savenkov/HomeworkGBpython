@@ -1,27 +1,31 @@
 """Создать метакласс для паттерна Синглтон"""
 
-class MetaClassSingleton(type):
-    #метакласс создающий единственный объект ккласса
-    instance = None
-    def __new__(cls, *args, **kwargs):
-        if cls.instance is None:
-            cls.instance = super().__new__(cls, *args, **kwargs)
+class MetaclassSingleton(type):
+    """Метакласс создающий единственный экземпляр класса"""
 
+    instance = None
+
+    def __call__(cls, *args, **kwargs):
+        if cls.instance is None:
+            cls.instance = super().__call__( *args, **kwargs)
+            return cls.instance
         return cls.instance
 
+class MyClassTest(metaclass=MetaclassSingleton):
+    #тестовый класс один для тестирования метода метакласса MetaclassSingleton
+    pass
 
-class Test(metaclass=MetaClassSingleton):
-#метакласс позволяет всем новым объектам экземплярам клаасса
-#ссылаться на один объет
+obj_test1 = MyClassTest()
+obj_test2 = MyClassTest()
 
-    def __init__(self, name, age ):
-        self.name = name
-        self.age = age
+print(obj_test1 is obj_test2)
 
-    def __str__(self):
-        return f'{self.name}, возраст - {self.age}'
+class MyClassTest1(metaclass=MetaclassSingleton):
+    #тестовый класс два для тестирования метода метакласса MetaclassSingleton
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+w = MyClassTest1(4,5)
+z = MyClassTest1(5,3)
 
-a = Test('Robin', '732')
-b = Test('a', '7')
-
-print(a)
+print(w == z)
