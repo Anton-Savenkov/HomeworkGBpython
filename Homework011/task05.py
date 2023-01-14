@@ -16,7 +16,7 @@ args_yand = ['ping', 'yanddex.ru', '-c', '5']
 args_yout = ['ping', 'youtube.com', '-c', '5']
 
 
-def Pigr_c(input_args):
+def PingWebRes(input_args):
     """
     Вункция вывода пингаа веб-ресурсов
     :param input_args: веб-ресурс
@@ -30,6 +30,6 @@ def Pigr_c(input_args):
 
 
 print(f'Выполняем пинг веб-ресурса {args_yand[1]}')
-Pigr_c(args_yand)
+PingWebRes(args_yand)
 print(f'\nВыполняем пинг веб-ресурса {args_yout[1]}')
-Pigr_c(args_yout)
+PingWebRes(args_yout)
